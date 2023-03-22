@@ -4,7 +4,7 @@ import './App.css';
 import { checkHealth } from './services/health';
 
 function App() {
-  const [url, setUrl] = useState(false)
+  const [url, setUrl] = useState('')
 
   useEffect(async() => {
     const { response } = await checkHealth();
@@ -24,7 +24,7 @@ function App() {
         >
           Learn React
         </a>
-        {url && <p>Backend connected to url : {url}</p>}
+        {url.length ? (<p>Backend connected to url : {url}</p>) : (<p>Backend not connected</p>)}
       </header>
     </div>
   );
